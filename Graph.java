@@ -1,3 +1,6 @@
+import bag.ResizableArrayBag;
+import stack.ResizableArrayStack;
+
 public class Graph<E>{
     private boolean[][] edges;
     private E[] labels;
@@ -19,19 +22,29 @@ public class Graph<E>{
         edges[source][target] = true;
     }
 
-    public int[] neighbors(int vertex){
+    public int getIndex(E label){
+        int index = -1;
+        for(int i = 0; i < this.size(); i++){
+            if(labels[i] == label){
+                index = i;
+            }
+        }
+        return index;
+    }
+
+    public int[] neighbors(int current){
         int count = 0;
         int[] answer;
 
         for(int i = 0; i < labels.length; i++){
-            if(edges[vertex][i]){
+            if(edges[current][i]){
                 count++;
             }
         }
         answer = new int[count];
         count = 0;
         for(int i = 0; i < labels.length; i++){
-            if(edges[vertex][i]){
+            if(edges[current][i]){
                 answer[count++] = i;
             }
         }
@@ -50,5 +63,36 @@ public class Graph<E>{
     // Accessor method to determine the number of vertices in this Graph
     public int size() {
         return labels.length;
+    }
+
+    public void depthFirstSearch(E label) throws Exception{
+        ResizableArrayStack<E> stack = new ResizableArrayStack<>();
+        ResizableArrayBag<E> visited = new ResizableArrayBag<>();
+
+        stack.push(label);
+
+        while(!stack.isEmpty()){
+            //set starting point
+            E current = stack.pop();
+
+            //get the indexes of the neighbors
+            int adjacent[] = neighbors(getIndex(current));
+            
+            //check if we visited the current label
+            //if not, add it to visited and print it
+            if(!visited.contains(current)){
+                visited.add(current);
+                System.out.print(current + " ");
+            }
+
+            //loops through the neighbors 
+            //if not visited push to the stack
+            for(int i = 0; i < adjacent.length; i++){
+                if(!visited.contains(getLabel(adjacent[i]))){
+                    stack.push(getLabel(adjacent[i]));
+                }
+            }
+        
+        }
     }
 }

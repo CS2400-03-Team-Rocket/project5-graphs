@@ -1,5 +1,5 @@
 public class GraphDriver {
-    public static void main(String [] args){
+    public static void main(String [] args) throws Exception{
         Graph<Character> graph1 = new Graph(9);
 
         //setting node labels
@@ -43,6 +43,8 @@ public class GraphDriver {
 
         //setting 'I' paths
         graph1.addEdge(8, 5);
+
+        graph1.depthFirstSearch('A');
 
     }
 }
