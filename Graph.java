@@ -2,7 +2,7 @@ import bag.ResizableArrayBag;
 import queue.ArrayQueue;
 import stack.ResizableArrayStack;
 
-public class Graph<E>{
+public class Graph<E> implements GraphInterface<E>{
     private boolean[][] edges;
     private E[] labels;
 
