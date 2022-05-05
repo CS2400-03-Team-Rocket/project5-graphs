@@ -1,4 +1,5 @@
 import bag.ResizableArrayBag;
+import queue.ArrayQueue;
 import stack.ResizableArrayStack;
 
 public class Graph<E>{
@@ -93,6 +94,22 @@ public class Graph<E>{
                 }
             }
         
+        }
+    }
+
+    public void breathFirstSearch(E label) throws Exception{
+        ArrayQueue<E> queue = new ArrayQueue<>();
+        ResizableArrayBag<E> visited = new ResizableArrayBag<>();
+
+        queue.enqueue(label);
+
+        while(!queue.isEmpty()){
+            //set starting point
+            E current = queue.dequeue();
+
+            //get the indexes of the neighbors
+            int adjacent[] = neighbors(getIndex(current));
+            
         }
     }
 }
