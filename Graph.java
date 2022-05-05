@@ -110,6 +110,16 @@ public class Graph<E>{
             //get the indexes of the neighbors
             int adjacent[] = neighbors(getIndex(current));
             
+            if(!visited.contains(current)){
+                visited.add(current);
+                System.out.print(current + " ");
+            }
+
+            for(int i = 0; i < adjacent.length; i++){
+                if(!visited.contains(getLabel(adjacent[i]))){
+                    queue.enqueue(getLabel(adjacent[i]));
+                }
+            }
         }
     }
 }
