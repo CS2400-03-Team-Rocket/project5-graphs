@@ -44,7 +44,56 @@ public class GraphDriver {
         //setting 'I' paths
         graph1.addEdge(8, 5);
 
+        System.out.print("Depth-First Search: ");
         graph1.depthFirstSearch('A');
 
+        System.out.println("\n");
+
+        Graph<Character> graph2 = new Graph(9);
+ 
+        //setting node labels
+        graph2.setLabel(0, 'A');
+        graph2.setLabel(1, 'B');
+        graph2.setLabel(2, 'C');
+        graph2.setLabel(3, 'D');
+        graph2.setLabel(4, 'E');
+        graph2.setLabel(5, 'F');
+        graph2.setLabel(6, 'G');
+        graph2.setLabel(7, 'H');
+        graph2.setLabel(8, 'I');
+  
+        //setting 'A' paths
+        graph2.addEdge(0, 1);
+        graph2.addEdge(0,3);
+        graph2.addEdge(0, 4);
+  
+        //setting 'B' paths
+        graph2.addEdge(1, 4);
+  
+        //setting 'C' paths
+        graph2.addEdge(2, 1);
+  
+        //setting 'D' paths
+        graph2.addEdge(3, 6);
+  
+        //setting 'E' paths
+        graph2.addEdge(4, 5);
+        graph2.addEdge(4, 7);
+  
+        //setting 'F' paths
+        graph2.addEdge(5, 2);
+        graph2.addEdge(5, 7);
+  
+        //setting 'G' paths
+        graph2.addEdge(6, 7);
+  
+        //setting 'H' paths
+        graph2.addEdge(7, 8);
+  
+        //setting 'I' paths
+        graph2.addEdge(8, 5);
+        
+        System.out.print("Breath-First Search: ");
+        graph2.breathFirstSearch('A');
     }
 }
