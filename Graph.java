@@ -1,7 +1,8 @@
 import bag.ResizableArrayBag;
+import queue.ArrayQueue;
 import stack.ResizableArrayStack;
 
-public class Graph<E>{
+public class Graph<E> implements GraphInterface<E>{
     private boolean[][] edges;
     private E[] labels;
 
@@ -65,12 +66,16 @@ public class Graph<E>{
         return labels.length;
     }
 
-    public void depthFirstSearch(E label) throws Exception{
-        ResizableArrayStack<E> stack = new ResizableArrayStack<>();
-        ResizableArrayBag<E> visited = new ResizableArrayBag<>();
+    public void depthFirstSearch(E originVertex) throws Exception{
+        ResizableArrayStack<E> stack = new ResizableArrayStack<>(); //stack holds elements that need to be visited
+        ResizableArrayBag<E> visited = new ResizableArrayBag<>(); //bag holds visited elements
 
+<<<<<<< HEAD
         //set starting point
         stack.push(label);
+=======
+        stack.push(originVertex); //add the origin vertex to stack
+>>>>>>> 16a43136d00a3d3daea48fb4303472c86da3bf83
 
         while(!stack.isEmpty()){
             //set starting point
@@ -93,7 +98,37 @@ public class Graph<E>{
                     stack.push(getLabel(adjacent[i]));
                 }
             }
-        
+        }
+    }
+
+    public void breathFirstSearch(E originVertex) throws Exception{
+        ArrayQueue<E> queue = new ArrayQueue<>(); //queue holds elements that need to be visited
+        ResizableArrayBag<E> visited = new ResizableArrayBag<>(); //bag holds visited elements
+
+        queue.enqueue(originVertex); //add the origin vertex to queue
+
+        while(!queue.isEmpty()){
+
+            //set starting point
+            E current = queue.dequeue();
+
+            //get the indexes of the neighbors
+            int adjacent[] = neighbors(getIndex(current));
+            
+            //check if we visited the current label
+            //if not, add it to visited and print it
+            if(!visited.contains(current)){
+                visited.add(current);
+                System.out.print(current + " ");
+            }
+
+            //loops through the neighbors 
+            //if not visited then add to back of queue
+            for(int i = 0; i < adjacent.length; i++){
+                if(!visited.contains(getLabel(adjacent[i]))){
+                    queue.enqueue(getLabel(adjacent[i]));
+                }
+            }
         }
     }
 }

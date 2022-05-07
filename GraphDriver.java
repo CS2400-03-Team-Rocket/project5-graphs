@@ -1,6 +1,6 @@
 public class GraphDriver {
     public static void main(String [] args) throws Exception{
-        Graph<Character> graph1 = new Graph(9);
+        Graph<Character> graph1 = new Graph<>(9);
 
         //setting node labels
         graph1.setLabel(0, 'A');
@@ -44,7 +44,12 @@ public class GraphDriver {
         //setting 'I' paths
         graph1.addEdge(8, 5);
 
+        //depth-first search
+        System.out.print("Depth-First Search: ");
         graph1.depthFirstSearch('A');
 
+        //breath-first search
+        System.out.print("\n\nBreath-First Search: ");
+        graph1.breathFirstSearch('A');
     }
 }
