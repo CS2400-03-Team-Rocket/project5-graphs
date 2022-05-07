@@ -70,12 +70,9 @@ public class Graph<E> implements GraphInterface<E>{
         ResizableArrayStack<E> stack = new ResizableArrayStack<>(); //stack holds elements that need to be visited
         ResizableArrayBag<E> visited = new ResizableArrayBag<>(); //bag holds visited elements
 
-<<<<<<< HEAD
         //set starting point
-        stack.push(label);
-=======
+        stack.push(originVertex);
         stack.push(originVertex); //add the origin vertex to stack
->>>>>>> 16a43136d00a3d3daea48fb4303472c86da3bf83
 
         while(!stack.isEmpty()){
             //set starting point
