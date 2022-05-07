@@ -69,6 +69,7 @@ public class Graph<E>{
         ResizableArrayStack<E> stack = new ResizableArrayStack<>();
         ResizableArrayBag<E> visited = new ResizableArrayBag<>();
 
+        //set starting point
         stack.push(label);
 
         while(!stack.isEmpty()){
