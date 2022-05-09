@@ -4,10 +4,11 @@ import java.io.PrintStream;
 
 import org.junit.Test;
 
-public class GraphTest {
+public class GraphTest{
     
     @Test 
     public void testDepthFirstSearch() throws Exception{
+
         Graph<Character> graph1 = new Graph<>(9);
 
         //setting node labels
@@ -63,6 +64,7 @@ public class GraphTest {
 
     @Test 
     public void testBreathFirstSearch() throws Exception{
+
         Graph<Character> graph1 = new Graph<>(9);
 
         //setting node labels
@@ -107,12 +109,12 @@ public class GraphTest {
         //setting 'I' paths
         graph1.addEdge(8, 5);
 
-        //depth first search
+        //breath first search
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
 
         graph1.breathFirstSearch('A');
-        //"A E H I F C B D G "
+        //"A B D E G F H C I "
         assertEquals("A B D E G F H C I ", outContent.toString());
     }
 }
