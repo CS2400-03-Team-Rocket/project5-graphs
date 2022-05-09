@@ -18,6 +18,6 @@ public interface GraphInterface<E> {
 
     public void depthFirstSearch(E originVertex) throws Exception;
 
-    public void breathFirstSearch(E originVertex) throws Exception;
+    public void breadthFirstSearch(E originVertex) throws Exception;
     
 }

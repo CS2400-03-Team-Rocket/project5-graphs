@@ -48,8 +48,8 @@ public class GraphDriver {
         System.out.print("Depth-First Search: ");
         graph1.depthFirstSearch('A');
 
-        //breath-first search
-        System.out.print("\n\nBreath-First Search: ");
-        graph1.breathFirstSearch('A');
+        //breadth-first search
+        System.out.print("\n\nBreadth-First Search: ");
+        graph1.breadthFirstSearch('A');
     }
 }

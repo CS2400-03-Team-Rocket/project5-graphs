@@ -98,7 +98,7 @@ public class Graph<E> implements GraphInterface<E>{
         }
     }
 
-    public void breathFirstSearch(E originVertex) throws Exception{
+    public void breadthFirstSearch(E originVertex) throws Exception{
         ArrayQueue<E> queue = new ArrayQueue<>(); //queue holds elements that need to be visited
         ResizableArrayBag<E> visited = new ResizableArrayBag<>(); //bag holds visited elements
 

@@ -63,7 +63,7 @@ public class GraphTest{
     }
 
     @Test 
-    public void testBreathFirstSearch() throws Exception{
+    public void testBreadthFirstSearch() throws Exception{
 
         Graph<Character> graph1 = new Graph<>(9);
 
@@ -109,11 +109,11 @@ public class GraphTest{
         //setting 'I' paths
         graph1.addEdge(8, 5);
 
-        //breath first search
+        //breadth first search
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
 
-        graph1.breathFirstSearch('A');
+        graph1.breadthFirstSearch('A');
         //"A B D E G F H C I "
         assertEquals("A B D E G F H C I ", outContent.toString());
     }
